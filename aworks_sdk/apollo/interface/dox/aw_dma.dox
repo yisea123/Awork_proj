@@ -1,0 +1,13 @@
+/*
+ \addtogroup grp_aw_serv_dma
+ \copybrief aw_dma.h
+
+@{
+*/
+
+/* \~chinese \defgroup  grp_aw_if_dma	    DMA服务     */
+/* \~english \defgroup  grp_aw_if_dma	    DMA service */
+/* \~chinese \defgroup  grp_aw_if_ti_edma3	增强型DMA   */
+/* \~english \defgroup  grp_aw_if_ti_edma3	Enhance DMA */
+
+/* @} grp_aw_serv_dma */

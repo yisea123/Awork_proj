@@ -1,0 +1,77 @@
+
+################################################################################
+# 提供给doxygen的一个组，命名为： grp_aw_service_device (设备接口)
+################################################################################
+
+/**
+ * @~english @defgroup grp_aw_service_device	device
+ * @~chinese @defgroup grp_aw_service_device	设备接口
+ * @~english @brief provide hardware access interface, e.g. GPIO, UART, I2C
+ * @~chinese @brief 提供访问硬件设备的接口，例如 GPIO、UART、I2C等硬件设备
+ * @~ @{
+ */
+
+/** @~ @defgroup  grp_aw_if_adc                    ADC */
+/** @~chinese @defgroup  grp_aw_if_can             CAN总线控制器 */
+/** @~english @defgroup  grp_aw_if_can             CAN */
+/** @~ @defgroup  grp_aw_if_dac                    DAC */
+/* @~chinese @defgroup   grp_aw_serv_dma           DMA服务 */
+/* @~english @defgroup   grp_aw_serv_dma           DMA */
+/** @~chinese @defgroup  grp_aw_if_ftl             Flash传输层 */
+/** @~english @defgroup  grp_aw_if_ftl             Flash transfer */
+
+/** @~ @defgroup  grp_aw_if_gpio                   GPIO */
+/** @~chinese @defgroup  grp_aw_if_gprs            GPRS */
+/** @~english @defgroup  grp_aw_if_gprs            GPRS */
+/** @~chinese @defgroup  grp_aw_if_gnss            GPS */
+/** @~english @defgroup  grp_aw_if_gnss            GPS */
+/** @~chinese @defgroup  grp_aw_if_i2c             I2C总线控制器 */
+/** @~english @defgroup  grp_aw_if_i2c             I2C */
+/** @~chinese @defgroup  grp_aw_if_led             LED设备 */
+/** @~english @defgroup  grp_aw_if_led             LED */
+
+/** @~chinese @defgroup  grp_aw_if_nvram           NVRAM 非易失性存储 */
+/** @~english @defgroup  grp_aw_if_nvram           NVRAM */
+/** @~chinese @defgroup  grp_aw_if_pwm             PWM脉冲宽度调制*/
+/** @~english @defgroup  grp_aw_if_pwm             PWM */
+/** @~chinese @defgroup  grp_aw_if_rtc             RTC时钟服务 */
+/** @~english @defgroup  grp_aw_if_rtc             RTC */
+
+/** @~chinese @defgroup  grp_aw_if_sdcard          SD卡 */
+/** @~english @defgroup  grp_aw_if_sdcard          SDCARD */
+/** @~chinese @defgroup  grp_aw_if_spi             SPI总线控制器 */
+/** @~english @defgroup  grp_aw_if_spi             SPI */
+/** @~chinese @defgroup  grp_aw_if_spi_flash       SPI Flash */
+/** @~english @defgroup  grp_aw_if_spi_flash       SPI Flash */
+
+
+/** @~chinese @defgroup  grp_aw_if_serial          串口设备 */
+/** @~english @defgroup  grp_aw_if_serial          serial */
+/** @~chinese @defgroup  grp_aw_if_buzzer          蜂鸣器设备 */
+/** @~english @defgroup  grp_aw_if_buzzer          buzzer */
+/** @~chinese @defgroup  grp_aw_if_relay           继电器 */
+/** @~english @defgroup  grp_aw_if_relay           relay */
+/** @~chinese @defgroup  grp_aw_if_watchdog        看门狗服务 */
+/** @~english @defgroup  grp_aw_if_watchdog        WATCHDOG */
+
+/** @~chinese @defgroup  grp_aw_if_hotplug_event   热插拔 */
+/** @~english @defgroup  grp_aw_if_hotplug_event   HOTPLUG */
+/** @~chinese @defgroup  grp_aw_if_capture         输入捕获 */
+/** @~english @defgroup  grp_aw_if_capture         CAPTURE */
+/** @~chinese @defgroup  grp_aw_serv_input         输入设备 */
+/** @~english @defgroup  grp_aw_serv_input         input */
+/** @~chinese @defgroup  grp_aw_if_digitron_disp   数码管显示设备 */
+/** @~english @defgroup  grp_aw_if_digitron_disp   digitron */
+
+/** @~chinese @defgroup  am_if_mprinter            微型打印机 */
+/** @~english @defgroup  am_if_mprinter            mprinter */
+/** @~chinese @defgroup  grp_aw_if_temp            温度设备 */
+/** @~english @defgroup  grp_aw_if_temp            temperature */
+/** @~chinese @defgroup  grp_aw_if_hwtimer         硬件定时器 */
+/** @~english @defgroup  grp_aw_if_hwtimer         hwtimer */
+
+/** @~chinese @defgroup  grp_aw_if_wifi            WIFI设备*/
+/** @~english @defgroup  grp_aw_if_wifi            WIFI */
+
+
+/** @} grp_aw_service_device */

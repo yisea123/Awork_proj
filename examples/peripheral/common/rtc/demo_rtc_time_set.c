@@ -1,0 +1,245 @@
+/*******************************************************************************
+ *                                  AWorks
+ *                       ----------------------------
+ *                       innovating embedded platform
+ *
+ * Copyright (c) 2001-2017 Guangzhou ZHIYUAN Electronics Co., Ltd.
+ * All rights reserved.
+ *
+ * Contact information:
+ * web site:    http://www.zlg.cn
+ * e-mail:      support@zlg.cn
+ *******************************************************************************/
+
+/**
+ * \file
+ * \brief RTC演示例程，通过shell命令设置时间
+ *
+ * - 操作步骤：
+ *   1. 本例程需在aw_prj_params.h头文件里使能
+ *      - 对应平台和对应编号的I2C
+ *      - AW_DEV_EXTEND_PCF85063
+ *      - AW_COM_CONSOLE
+ *      注意：如果初始化失败，查看配置文件是否是引脚配置冲突，如果是，在aw_prj_params.h中关闭不使用的宏
+ *   2. 将板子中的DURX、DUTX通过USB转串口和PC连接，串口调试助手设置：
+ *      波特率为115200，8位数据长度，1个停止位，无流控
+ *   3. 由于系统中RTC为单实例，因而只能开启一个RTC外设
+ *
+ * - 实验现象：
+ *   1. 执行shell命令"test_rtc":串口启动rtc计时5次
+ *   2. 执行shell命令"test_rtc 2018-11-13 15:05:00":设置指定时间，串口启动rtc计时5次。
+ *
+ * \par 源代码
+ * \snippet demo_rtc_time_set.c src_rtc_time_set
+ *
+ * \internal
+ * \par Modification History
+ * - 1.00 16-03-24  cod, first implementation.
+ * \endinternal
+ */
+
+/**
+ * \addtogroup demo_if_std_rtc_time_set
+ * \copydoc demo_rtc_time_set.c
+ */
+
+/** [src_rtc_time_set] */
+#include "aworks.h"     /* 该头文件必须首先被包含 */
+
+#include "aw_delay.h"
+#include "aw_rtc.h"
+#include "aw_vdebug.h"
+#include "aw_prj_params.h"
+#include "aw_shell.h"
+#include "stdio.h"
+
+//#define RTC_ID    RTC_ID0        /* PCF85063 RTC */
+#define RTC_ID    RTC_ID1      /* 核心板内部RTC */
+
+static aw_tm_t      __g_old_time = {0};
+
+/**
+ * \brief 判断输入时间是否有效
+ *
+ * \param[in] hour      时
+ * \param[in] minute    分
+ * \param[in] second    秒
+ *
+ * \return 判断结果
+ */
+aw_local int __is_time_invalid(int hour,int minute,int second)
+{
+    int                 ret = -EINVAL;
+
+    if( hour < 0 || hour > 23) {
+        goto cleanup;
+    }
+    if (minute < 0 || minute > 59) {
+        goto cleanup;
+    }
+    if (second < 0 || second > 59) {
+        goto cleanup;
+    }
+
+    ret = 0;
+
+cleanup:
+    return ret;
+}
+
+
+/**
+ * \brief 判断输入日期是否有效
+ *
+ * \param[in] year      年
+ * \param[in] month     月
+ * \param[in] date      日
+ *
+ * \return 判断结果
+ */
+aw_local int __is_date_invalid(int year,int month,int date)
+{
+    static const int    month_days[12] = {31,29,31,30,31,30,31,31,30,31,30,31};
+    int                 ret = -EINVAL;
+
+    if ( year <2000 || year >2050) {
+        goto cleanup;
+    }
+    if (month <=0 || month > 12 ) {
+        goto cleanup;
+    }
+    if (date <= 0 || date > month_days[month-1] ) {
+        goto cleanup;
+    }
+
+    //如果是闰年
+    if ( ((year%4)==0 && (year%100)!=0 ) || (year%400) == 0) {
+
+    }else {
+        if (2 == month) {
+            if (date >= 29) {
+                goto cleanup;
+            }
+        }
+    }
+
+    ret = 0;
+
+cleanup:
+    return ret;
+}
+
+static void __rtc_time_run(void)
+{
+    int                 i;
+    aw_tm_t             tm;
+    aw_time_t           t1,t2;
+    int                 ret;
+    char                time_str[30];
+
+    ret = aw_tm_to_time(&__g_old_time, &t1);
+    if(ret != AW_OK){
+        goto __exit ;
+    }
+
+    for (i = 0;i < 5; i++) {
+        ret = aw_rtc_time_get(RTC_ID, &tm);
+        if(ret != AW_OK){
+            goto __exit ;
+        }
+
+        ret = aw_tm_to_time(&tm, &t2);
+
+        /* 将计算出的时间信息转换成字符串格式 */
+        asctime_r((struct tm*)&tm, time_str);
+        aw_kprintf("%s", time_str);
+        if(ret != AW_OK){
+            goto __exit ;
+        }
+
+        aw_mdelay(1000);
+    }
+
+__exit:
+    return ;
+}
+
+
+int __rtc_cmd (int argc, char *argv[], struct aw_shell_user *sh)
+{
+    const char             *sz_date = "2018-1-19";
+    const char             *sz_time = "09:00:00";
+    int                     ret = 0;
+    int                     t1,t2,t3;
+
+    if (argc >= 1) {
+        sz_date = argv[0];
+    }
+    if (argc >= 2) {
+        sz_time = argv[1];
+    }
+
+    ret = sscanf(sz_date,"%d-%d-%d",&t1,&t2,&t3);
+    if (ret != 3) {
+        aw_shell_printf(sh,"invalid date string\n");
+        ret = -EINVAL;
+        goto cleanup;
+    }
+    ret = __is_date_invalid(t1,t2,t3);
+    if (ret != 0) {
+        aw_shell_printf(sh,"invalid date \n");
+        ret = -EINVAL;
+        goto cleanup;
+    }
+    __g_old_time.tm_year = t1 -1900;
+    __g_old_time.tm_mon = t2 -1;
+    __g_old_time.tm_mday = t3;
+
+    ret = sscanf(sz_time,"%d:%d:%d",&t1,&t2,&t3);
+    if (ret != 3) {
+        aw_shell_printf(sh,"invalid time string\n");
+        ret = -EINVAL;
+        goto cleanup;
+    }
+    ret = __is_time_invalid(t1,t2,t3);
+    if (ret != 0) {
+        aw_shell_printf(sh,"invalid time \n");
+        ret = -EINVAL;
+        goto cleanup;
+    }
+
+    __g_old_time.tm_hour = t1;
+    __g_old_time.tm_min = t2;
+    __g_old_time.tm_sec = t3;
+
+    /* 设置时间 */
+    ret = aw_rtc_time_set(RTC_ID, &__g_old_time);
+
+    if (ret != 0) {
+        aw_shell_printf(sh,"invalid aw_rtc_time_set failed \n");
+        ret = -EINVAL;
+        goto cleanup;
+    }
+
+    __rtc_time_run();
+
+cleanup:
+    return ret;
+}
+
+static const struct aw_shell_cmd __g_rtc_test_cmds[] = {
+    {__rtc_cmd,  "test_rtc",  "[2018-1-19] [09:00:00] "},
+};
+
+/**
+ * \brief RTC演示例程入口
+ * \return 无
+ */
+void demo_rtc_time_set_entry (void)
+{
+    static struct aw_shell_cmd_list cl;
+    (void)AW_SHELL_REGISTER_CMDS(&cl, __g_rtc_test_cmds);
+}
+/** [src_rtc_time_set] */
+
+/* end of file */

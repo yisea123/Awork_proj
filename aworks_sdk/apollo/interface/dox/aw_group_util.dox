@@ -1,0 +1,57 @@
+
+################################################################################
+# 提供给doxygen的一个组，命名为： grp_aw_service_util （通用工具）
+################################################################################
+ 
+/**
+ * @~english @defgroup grp_aw_service_util Commmonutil
+ * @~chinese @defgroup grp_aw_service_util 通用工具
+ * @~english @brief provide common tools, e.g. list, round buffer, bit operation
+ * @~chinese @brief 提供通用工具，例如链表、环形缓冲区、位操作表等服务
+ * @~ @{
+ */
+ 
+
+/** @~chinese @defgroup  grp_aw_if_crc            CRC校验 */
+/** @~english @defgroup  grp_aw_if_crc            CRC */
+/** @~chinese @defgroup  grp_aw_if_md5            MD5 */
+/** @~english @defgroup  grp_aw_if_md5            MD5 */
+
+/** @~chinese @defgroup  grp_aw_if_memheap        堆管理器 */
+/** @~english @defgroup  grp_aw_if_memheap        memheap */
+
+/** @~chinese @defgroup  grp_aw_if_rngbuf         环形缓冲区 */
+/** @~english @defgroup  grp_aw_if_rngbuf         ringbuf */
+/** @~chinese @defgroup  grp_aw_if_pool           内存池 */
+/** @~english @defgroup  grp_aw_if_pool           pool */
+
+/** @~chinese @defgroup  grp_aw_log_lib            日志消息库 */
+/** @~english @defgroup  grp_aw_log_lib           logger */
+/** @~chinese @defgroup  grp_aw_log_blk           日志存储至blk中 */
+/** @~english @defgroup  grp_aw_log_blk           logger block */
+/** @~chinese @defgroup  grp_aw_log_fs            日志存储至文件系统中 */
+/** @~english @defgroup  grp_aw_log_fs            logger fs */
+/** @~chinese @defgroup  grp_aw_log_ftl           日志存储至ftl中 */
+/** @~english @defgroup  grp_aw_log_ftl           logger ftl */
+/** @~chinese @defgroup  grp_aw_if_sftimer_lib    软件定时器库 */
+/** @~english @defgroup  grp_aw_if_sftimer_lib    sftimer_lib */
+
+/** @~chinese @defgroup  grp_aw_if_pbuf           通用PBUF组件接口 */
+/** @~english @defgroup  grp_aw_if_pbuf           pbuf */
+/** @~chinese @defgroup  grp_aw_if_pipe           通用管道缓冲区 */
+/** @~english @defgroup  grp_aw_if_pipe           pipe */
+/** @~chinese @defgroup  grp_aw_if_common         通用工具宏 */
+/** @~english @defgroup  grp_aw_if_common         define */
+/** @~chinese @defgroup  grp_aw_if_list           通用链表 */
+/** @~english @defgroup  grp_aw_if_list           list */
+/** @~chinese @defgroup  grp_aw_if_bitops         通用位操作 */
+/** @~english @defgroup  grp_aw_if_bitops         bitops */
+/** @~chinese @defgroup  grp_aw_if_byteops        通用字节操作 */
+/** @~english @defgroup  grp_aw_if_byteops        byteops */
+
+/** @~chinese @defgroup  grp_aw_if_refcnt         引用计数组件接口 */
+/** @~english @defgroup  grp_aw_if_refcnt         refcnt */
+
+/** @} grp_aw_service_util */
+
+################################################################################

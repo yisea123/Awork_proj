@@ -1,0 +1,11 @@
+import os
+
+env=DefaultEnvironment().Clone();
+
+env['LINKFLAGS'] = env['OS_SUBSYSTEM_WINDOWS'] + env['LINKFLAGS'];
+
+src_files = Split("""assets.c
+                     app_main.c
+                     window_main.c""");
+env.Program(os.path.join('../bin', 'demo'), src_files);
+

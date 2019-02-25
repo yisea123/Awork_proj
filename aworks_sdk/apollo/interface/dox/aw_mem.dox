@@ -1,0 +1,15 @@
+/**
+ * \addtogroup grp_aw_serv_memory
+ * \~chinese \brief 内存管理
+ * \~english \brief memory management
+ * \~ @{
+ */
+
+/** \~chinese \defgroup  grp_aw_if_cache    DMA-safe内存 */
+/** \~english \defgroup  grp_aw_if_cache    DMA-safe Memory */
+
+/** \~chinese \defgroup  grp_aw_if_mem	    标准接口 */
+/** \~english \defgroup  grp_aw_if_mem	    Standard Interface */
+
+
+/** \~ @} grp_aw_serv_memory */

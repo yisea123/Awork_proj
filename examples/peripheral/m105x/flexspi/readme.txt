@@ -1,0 +1,2 @@
+1.参考标准spi例程：peripheral\spi
+2.在配置文件aw_prj_params.h中打开AW_DEV_IMX1050_FLEXSPI宏

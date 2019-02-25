@@ -1,0 +1,47 @@
+
+################################################################################
+# 提供给doxygen的一个组，命名为： grp_aw_service_multitask  （多任务服务）
+################################################################################
+
+/**
+ * @~english @defgroup grp_aw_service_multitask    Multitask
+ * @~chinese @defgroup grp_aw_service_multitask    多任务服务
+ * @~english @brief provide multi-task service, e.g. task management, semaphore, message queue
+ * @~chinese @brief 提供任务管理、信号量、消息队列等多任务服务
+ * @~ @{
+ */
+
+
+/** @~chinese @defgroup  grp_aw_if_task2         动态任务 */
+/** @~english @defgroup  grp_aw_if_task2         dynamic task */
+/** @~chinese @defgroup  grp_aw_if_task          任务管理 */
+/** @~english @defgroup  grp_aw_if_task          task */
+/** @~chinese @defgroup  grp_aw_if_timer         软件定时器 */
+/** @~english @defgroup  grp_aw_if_timer         timer */
+
+/** @~chinese @defgroup  grp_aw_if_flag_grp      事件标记组 */
+/** @~english @defgroup  grp_aw_if_flag_grp      event flag group */
+
+/** @~chinese @defgroup  grp_aw_if_sys_defer     系统延迟作业 */
+/** @~english @defgroup  grp_aw_if_sys_defer     system defer */
+/** @~chinese @defgroup  grp_aw_if_msgq          消息队列 */
+/** @~english @defgroup  grp_aw_if_msgq          msgqueue */
+/** @~chinese @defgroup  grp_aw_if_sem           信号量 /互斥量 */
+/** @~english @defgroup  grp_aw_if_sem           semaphore */
+
+/** @~chinese @defgroup  grp_aw_if_defer         延时/异步处理 */
+/** @~english @defgroup  grp_aw_if_defer         defer */
+/** @~chinese @defgroup  grp_aw_if_delayed_work  延迟作业 */
+/** @~english @defgroup  grp_aw_if_delayed_work  delaywork */
+/** @~chinese @defgroup  grp_aw_if_mailbox       邮箱 */
+/** @~english @defgroup  grp_aw_if_mailbox       Mailbox */
+
+/** @~chinese @defgroup  grp_aw_if_isr_defer     中断延迟处理 */
+/** @~english @defgroup  grp_aw_if_isr_defer     isr_defer */
+/** @~chinese @defgroup  grp_aw_if_job_queue     作业队列 */
+/** @~english @defgroup  grp_aw_if_job_queue     job_queue */
+
+
+/** @} grp_aw_service_multitask */
+
+################################################################################

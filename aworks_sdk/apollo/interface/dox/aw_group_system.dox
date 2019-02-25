@@ -1,0 +1,51 @@
+
+################################################################################
+# 提供给doxygen的一个组，命名为： grp_aw_service_system  （系统服务）
+################################################################################
+
+/**
+ * @~english @defgroup grp_aw_service_system System Service
+ * @~chinese @defgroup grp_aw_service_system 系统服务
+ * @~english @brief provide system service, e.g. interrupt, spinlock, delay
+ * @~chinese @brief 提供系统服务，例如中断、自旋锁、延时等服务
+ * @~ @{
+ */
+
+
+
+/** @~chinese @defgroup  grp_aw_if_shell     Shell */
+/** @~english @defgroup  grp_aw_if_shell     Shell */
+
+/** @~chinese @defgroup  grp_aw_if_slab      SLAB内存分配器 */
+/** @~english @defgroup  grp_aw_if_slab      SLAB allocator */
+
+/** @~chinese @defgroup  grp_aw_if_errno     错误编码 */
+/** @~english @defgroup  grp_aw_if_errno     Errnum */
+/** @~chinese @defgroup  grp_aw_if_assert    断言 */
+/** @~english @defgroup  grp_aw_if_assert    Assert */
+
+/** @~chinese @defgroup  grp_aw_if_vdebug    可视化调试 */
+/** @~english @defgroup  grp_aw_if_vdebug    Visualdebug */
+/** @~chinese @defgroup  grp_aw_serv_memory  内存管理 */
+/** @~english @defgroup  grp_aw_serv_memory  MemManage */
+
+/** @~chinese @defgroup  grp_aw_if_event     事件报告 */
+/** @~english @defgroup  grp_aw_if_event     EventReport */
+/** @~chinese @defgroup  grp_aw_if_time      时间标准服务 */
+/** @~english @defgroup  grp_aw_if_time      Time */
+/** @~chinese @defgroup  grp_aw_if_timestamp 时间戳服务 */
+/** @~english @defgroup  grp_aw_if_timestamp Timestamp */
+
+/** @~chinese @defgroup  grp_aw_if_system    系统 */
+/** @~english @defgroup  grp_aw_if_system    System */
+/** @~chinese @defgroup  grp_aw_if_delay     延时 */
+/** @~english @defgroup  grp_aw_if_delay     delay */
+/** @~chinese @defgroup  grp_aw_if_exc       异常 */
+/** @~english @defgroup  grp_aw_if_exc       Except */
+/** @~chinese @defgroup  grp_aw_if_int       中断 */
+/** @~english @defgroup  grp_aw_if_int       Interrupt */
+/** @~chinese @defgroup  grp_aw_if_spinlock  自旋锁 */
+/** @~english @defgroup  grp_aw_if_spinlock  Spinlock */
+
+
+/** @} grp_aw_service_system */

@@ -1,0 +1,19 @@
+#===============================================================================
+
+/**
+ * @addtogroup grp_aw_serv_input
+ * @brief 输入设备服务
+ * @{
+ */
+ 
+/** @~chinese @defgroup  grp_aw_if_input             Input标准服务 */
+/** @~english @defgroup  grp_aw_if_input             input_serv */
+
+/** @~chinese @defgroup  grp_aw_if_input_code         按键和按钮输入值定义 */
+/** @~english @defgroup  grp_aw_if_input_code         key_defines */
+
+/** @~chinese @defgroup  grp_aw_if_ts      	          触摸屏ts标准接口 */
+/** @~english @defgroup  grp_aw_if_ts                 touch_screen */
+
+
+/**  @} grp_aw_serv_input */

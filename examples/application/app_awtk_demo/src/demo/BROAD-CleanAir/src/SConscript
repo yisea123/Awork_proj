@@ -1,0 +1,9 @@
+import os
+
+env=DefaultEnvironment().Clone();
+BIN_DIR=os.environ['BIN_DIR'];
+
+env['LINKFLAGS'] = env['OS_SUBSYSTEM_WINDOWS'] + env['LINKFLAGS'];
+
+env.Program(os.path.join(BIN_DIR, 'demo'), ['assets.c', 'app_main.c', 'window_calibration.c', 'window_main.c', 'window_timing.c', 'window_record.c', 'window_setting.c']);
+
